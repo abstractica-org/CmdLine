@@ -5,9 +5,7 @@ import org.abstractica.base.io.textio.TextOutput;
 import org.abstractica.base.io.textio.terminal.TerminalOutput;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.function.Consumer;
 
 public class CmdLine
 {
