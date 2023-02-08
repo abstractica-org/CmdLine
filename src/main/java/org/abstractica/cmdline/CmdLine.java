@@ -16,10 +16,12 @@ public class CmdLine
 			boolean isWindows = System.getProperty("os.name")
 					.toLowerCase().startsWith("windows");
 			String prefix = isWindows ? "cmd.exe /c " : "sh -c ";
+			processOut.println("Running cmd: " + cmd);
 			Process process = Runtime.getRuntime().exec(prefix + cmd);
 			new BufferedReader(new InputStreamReader(process.getInputStream())).lines()
 					.forEach(str ->processOut.println(str));
 			int exitCode = process.waitFor();
+			processOut.println("Command exit code: " + exitCode);
 		}catch(Exception e)
 		{
 			throw new RuntimeException("Could not run command: " + cmd, e);
