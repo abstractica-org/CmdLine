@@ -7,6 +7,7 @@ public class Test
 {
 	public static void main(String[] args) throws IOException, ExecutionException, InterruptedException
 	{
-		CmdLine.runCommand("dir");
+		int exitCode = CmdLine.runCommand("dir");
+		System.out.println("Exit code: " + exitCode);
 	}
 }

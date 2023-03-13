@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class CmdLine
 {
-	public static void runCommand(String cmd, TextOutput processOut)
+	public static int runCommand(String cmd, TextOutput processOut)
 	{
 		try
 		{
@@ -22,14 +22,15 @@ public class CmdLine
 					.forEach(str ->processOut.println(str));
 			int exitCode = process.waitFor();
 			processOut.println("Command exit code: " + exitCode);
+			return exitCode;
 		}catch(Exception e)
 		{
 			throw new RuntimeException("Could not run command: " + cmd, e);
 		}
 	}
 
-	public static void runCommand(String cmd)
+	public static int runCommand(String cmd)
 	{
-		runCommand(cmd, new TerminalOutput());
+		return runCommand(cmd, new TerminalOutput());
 	}
 }
